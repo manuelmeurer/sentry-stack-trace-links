@@ -1,0 +1,3 @@
+li.frame:not(.system-frame) .filename:hover {
+  color: blue;
+}
