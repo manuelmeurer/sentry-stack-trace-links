@@ -16,4 +16,4 @@ If you notice a bug or have an idea for an improvement, please open an [issue](h
 
 ## License
 
-This project is licensed under the MIT License - see the LICENSE.md file for details.
+This project is licensed under the MIT License - see LICENSE for details.
