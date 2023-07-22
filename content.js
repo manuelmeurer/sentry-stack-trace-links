@@ -6,25 +6,19 @@ const localPaths = {
 const projectId = window.location.search.match(/project=(\d+)/)?.[1]
 const localPath = localPaths[projectId]
 
-const openVsCode = event => {
+if (!localPath)
+  next
+
+document.body.addEventListener("click", event => {
+  const wrapper = event.target.closest("li.frame:not(.system-frame)")
+
+  if (!wrapper)
+    return
+
   event.stopPropagation()
 
-  const filename = event.currentTarget.innerText
-  const line     = event.currentTarget.parentNode.querySelector(".lineno").innerText
+  const filename = wrapper.querySelector(".filename").innerText
+  const line     = wrapper.querySelector(".lineno").innerText
 
   window.open(`vscode://file${localPath}${filename}:${line}`)
-}
-
-const addLinks = () => {
-  document.querySelectorAll("li.frame:not(.system-frame) .filename")
-          .forEach(element => element.addEventListener("click", openVsCode))
-}
-
-if (localPath) {
-  addLinks()
-  new MutationObserver(addLinks)
-    .observe(document.body, {
-      childList: true,
-      subtree:   true
-    })
-}
+})
