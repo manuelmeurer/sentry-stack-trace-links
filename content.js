@@ -3,16 +3,12 @@ const localPaths = {
   "123": "/Users/me/myapp/"
 }
 
-const projectId = window.location.search.match(/project=(\d+)/)?.[1]
-const localPath = localPaths[projectId]
-
-if (!localPath)
-  next
-
 document.body.addEventListener("click", event => {
-  const wrapper = event.target.closest("li.frame:not(.system-frame)")
+  const projectId = window.location.search.match(/project=(\d+)/)?.[1]
+  const localPath = localPaths[projectId]
+  const wrapper   = event.target.closest("li.frame:not(.system-frame)")
 
-  if (!wrapper)
+  if (!localPath || !wrapper)
     return
 
   event.stopPropagation()
