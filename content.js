@@ -4,16 +4,15 @@ const localPaths = {
 }
 
 document.body.addEventListener("click", event => {
-  const projectId = window.location.search.match(/project=(\d+)/)?.[1]
-  const localPath = localPaths[projectId]
-  const wrapper   = event.target.closest("li.frame:not(.system-frame)")
+  const projectId       = window.location.search.match(/project=(\d+)/)?.[1]
+  const localPath       = localPaths[projectId]
+  const wrapper         = event.target.closest("li.frame:not(.system-frame)")
+  const filenameElement = event.target.closest(".filename")
 
-  if (!localPath || !wrapper)
+  if (!localPath || !wrapper || !filenameElement)
     return
 
-  event.stopPropagation()
-
-  const filename = wrapper.querySelector(".filename").innerText
+  const filename = filenameElement.innerText
   const line     = wrapper.querySelector(".lineno").innerText
 
   window.open(`vscode://file${localPath}${filename}:${line}`)
