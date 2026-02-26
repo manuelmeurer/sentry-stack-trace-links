@@ -1,13 +1,13 @@
 // Map Sentry project IDs to paths to the source code on your local machine here, including trailing slash.
 const localPaths = {
-  "6318329":          "/Users/manuel/code/uplink/app/",
-  "4504147119767552": "/Users/manuel/code/notetoself/",
-  "4504471079223296": "/Users/manuel/code/spendex/",
-  "4507855149727744": "/Users/manuel/code/funlocked/app/",
-  "4508944133062656": "/Users/manuel/code/dasauge/app/",
-  "4508579074736128": "/Users/manuel/code/tasks/"
+  "6318329":          "/Users/manuel/code/own/uplink/app/",
+  "4504147119767552": "/Users/manuel/code/own/notetoself/",
+  "4504471079223296": "/Users/manuel/code/own/spendex/",
+  "4507855149727744": "/Users/manuel/code/own/funlocked/app/",
+  "4508944133062656": "/Users/manuel/code/own/dasauge/app/",
+  "4508579074736128": "/Users/manuel/code/own/tasks/"
 }
-const baselinePath = "/Users/manuel/code/baseline/"
+const baselinePath = "/Users/manuel/code/own/baseline/"
 
 document.body.addEventListener("click", event => {
   const projectId       = window.location.search.match(/project=(\d+)/)?.[1]
